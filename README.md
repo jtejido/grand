@@ -9,8 +9,8 @@ An attempt to house PRNGs under a single roof.
 
 ## Why another rand.Rand?
 
-All PRNG sources are either built for 32-bit and 64-bit streams. While Golang's built-in rand accepts
-Source interface with an Int63() implementation, we'd like to re-define it as Uint32(). This way, any sources implemented in the literature should be easy to be translated (directly from either the resource material or the author's code itself) without any bit manipulations/operations involved.
+All PRNG sources are either built for 32-bit and 64-bit streams. While Golang's built-in **Rand** accepts
+Source interface with an Int63() implementation, we'd re-define it as Uint32(). This way, any sources implemented in the literature should be easy to be translated (directly from either the resource material or the author's code itself) without any bit manipulations/operations involved.
 
 Having a suite of these algorithms would provide Gophers with a reasonable range of tradeoffs among space, time and quality.
 
@@ -19,7 +19,7 @@ source).
 
 LockedSource is also published.
 
-One important feature is Jumpable and/or streaming sources. *Jumping* (and *Leaping* (long jump), but not implemented here) streams are especially important when creating simulations or test reproducibility, some sources can also leap given an arbitrary length (*ArbitraryJumpable* which allows jumping to and fro, given an arbitrary length period). Though we haven't fully set everything up, I believe this should be a good foundation to work from.
+One important feature is Jumpable and/or streaming sources. *Jumping* (and *Leaping* (long jump), not implemented yet) streams are especially important when creating simulations or test reproducibility.
 
 
 ### API

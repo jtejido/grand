@@ -43,7 +43,7 @@ type SplitMix64 struct {
 
 func NewSplitMix64(seed uint64) *SplitMix64 {
 	ans := new(SplitMix64)
-	ans.baseSource64.spi = ans
+	ans.spi = ans
 	ans.substate = seed
 	ans.state = ans.substate
 	return ans

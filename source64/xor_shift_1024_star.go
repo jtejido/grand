@@ -52,6 +52,7 @@ func NewXorShift1024StarPhiFromStream(seed []uint64) (*XorShift1024Star, error) 
 // This builds the seed slice from a split_mx64 generator using the seed provided.
 func NewXorShift1024Star(seed int64) *XorShift1024Star {
 	ans := new(XorShift1024Star)
+	ans.spi = ans
 	ans.multiplier = 1181783497276652981
 	ans.Seed(seed)
 	return ans
@@ -60,6 +61,7 @@ func NewXorShift1024Star(seed int64) *XorShift1024Star {
 // Th xorshift1024starphi uses a different multiplier
 func NewXorShift1024StarPhi(seed int64) *XorShift1024Star {
 	ans := new(XorShift1024Star)
+	ans.spi = ans
 	ans.multiplier = 0x9e3779b97f4a7c13
 	ans.Seed(seed)
 	return ans

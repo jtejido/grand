@@ -23,7 +23,7 @@ func NewSFCFromStream(seed []uint64) (*SFC, error) {
 	}
 
 	ans := new(SFC)
-	ans.baseSource64.spi = ans
+	ans.spi = ans
 	if len(seed) < sfc_r {
 		tmp := make([]uint64, sfc_r)
 		fillState(tmp, seed)
@@ -37,7 +37,7 @@ func NewSFCFromStream(seed []uint64) (*SFC, error) {
 // this builds the seed slice from a split_mx64 generator using the seed provided
 func NewSFC(seed int64) *SFC {
 	ans := new(SFC)
-	ans.baseSource64.spi = ans
+	ans.spi = ans
 	ans.Seed(seed)
 	return ans
 }

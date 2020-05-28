@@ -27,7 +27,7 @@ func NewXoShiRo256StarStarFromStream(seed []uint64) (*XoShiRo256StarStar, error)
 	}
 
 	ans := new(XoShiRo256StarStar)
-
+	ans.spi = ans
 	if len(seed) < xoshiro256_r {
 		tmp := make([]uint64, xoshiro256_r)
 		fillState(tmp, seed)
@@ -42,6 +42,7 @@ func NewXoShiRo256StarStarFromStream(seed []uint64) (*XoShiRo256StarStar, error)
 // this builds the seed slice from a split_mx64 generator using the seed provided
 func NewXoShiRo256StarStar(seed int64) *XoShiRo256StarStar {
 	ans := new(XoShiRo256StarStar)
+	ans.spi = ans
 	ans.Seed(seed)
 	return ans
 }

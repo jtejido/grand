@@ -48,7 +48,7 @@ func NewMT19937FromStream(stream []uint64) (*MT19937, error) {
 	}
 
 	ans := new(MT19937)
-	ans.baseSource64.spi = ans
+	ans.spi = ans
 	ans.setSeed(stream)
 	return ans, nil
 }
@@ -56,7 +56,7 @@ func NewMT19937FromStream(stream []uint64) (*MT19937, error) {
 // this builds the seed slice from a split_mx64 generator using the seed provided
 func NewMT19937(seed int64) *MT19937 {
 	ans := new(MT19937)
-	ans.baseSource64.spi = ans
+	ans.spi = ans
 	ans.Seed(seed)
 	return ans
 }

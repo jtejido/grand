@@ -36,7 +36,7 @@ func NewXoRoShiRo128PlusFromStream(seed []uint64) (*XoRoShiRo128Plus, error) {
 	}
 
 	ans := new(XoRoShiRo128Plus)
-
+	ans.spi = ans
 	if len(seed) < xoroshiro128_r {
 		tmp := make([]uint64, xoroshiro128_r)
 		fillState(tmp, seed)
@@ -51,6 +51,7 @@ func NewXoRoShiRo128PlusFromStream(seed []uint64) (*XoRoShiRo128Plus, error) {
 // this builds the seed slice from a split_mx64 generator using the seed provided
 func NewXoRoShiRo128Plus(seed int64) *XoRoShiRo128Plus {
 	ans := new(XoRoShiRo128Plus)
+	ans.spi = ans
 	ans.Seed(seed)
 	return ans
 }
